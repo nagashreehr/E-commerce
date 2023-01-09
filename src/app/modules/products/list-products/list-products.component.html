@@ -1,0 +1,47 @@
+<div class="header">
+  <h1 class="heading">Book List</h1>
+  <button
+    class="add-btn"
+    mat-raised-button
+    color="primary"
+    routerLink="add-products"
+  >
+    Add
+  </button>
+</div>
+<mat-list class="example-list-wrapping">
+  <mat-list-item lines="3">
+    <span matListItemTitle>Title</span>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est
+  </mat-list-item>
+</mat-list>
+
+<button
+  class="delete"
+  mat-icon-button
+  color="primary"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon>delete</mat-icon>
+</button>
+<button
+  class="edit"
+  mat-icon-button
+  color="primary"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon>edit</mat-icon>
+</button>
+
+<!-- <div>
+  <mat-list *ngIf="books.length > 0">
+    <mat-list-item *ngFor="let book of books" class="list-item">
+      <h3 matListItemTitle>Name {{ books.name }}</h3>
+    </mat-list-item>
+  </mat-list>
+</div> -->

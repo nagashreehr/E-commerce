@@ -1,0 +1,71 @@
+<div class="header">
+  <h1>Add Book</h1>
+  <button mat-raised-button color="primary" routerLink="/products">
+    <mat-icon color="white">arrow_back</mat-icon>Back
+  </button>
+</div>
+<form
+  class="example-form"
+  [formGroup]="reactiveForm"
+  (ngSubmit)="onSubmitClick(reactiveForm.value)"
+>
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Book Name" formControlName="book_name" />
+    <mat-error
+      *ngIf="!reactiveForm.get('book_name')?.valid && (reactiveForm.get('book_name')?.['touched'])"
+      >Enter the Book Name</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field class="genre" appearance="fill">
+    <mat-label>Genre</mat-label>
+    <input matInput placeholder="Book Genre" formControlName="book_genre" />
+    <mat-error
+      *ngIf="!reactiveForm.get('book_genre')?.valid && (reactiveForm.get('book_genre')?.['touched'])"
+      >Enter the Genre Name
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="description" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Book Description"
+      formControlName="book_description"
+    />
+    <mat-error
+      *ngIf="!reactiveForm.get('book_description')?.valid && (reactiveForm.get('book_description')?.['touched'])"
+      >Enter the Description of the Book
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="author" appearance="fill">
+    <mat-label>Author</mat-label>
+    <input matInput placeholder="Book Author" formControlName="book_author" />
+    <mat-error
+      *ngIf="!reactiveForm.get('book_author')?.valid && (reactiveForm.get('book_author')?.['touched'])"
+      >Enter the Author Name
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="amount" appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Amount" formControlName="book_price" />
+    <mat-error
+      *ngIf="!reactiveForm.get('book_price')?.valid && (reactiveForm.get('book_price')?.['touched'])"
+    >
+      Enter the Price
+    </mat-error>
+  </mat-form-field>
+</form>
+<div class="footer">
+  <button class="reset" (click)="reset()" mat-raised-button color="grey">
+    Reset
+  </button>
+  <button
+    type="submit"
+    class="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="!reactiveForm.valid"
+  >
+    Submit
+  </button>
+</div>

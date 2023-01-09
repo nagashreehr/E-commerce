@@ -1,0 +1,66 @@
+<div class="container">
+  <ng-container *ngFor="let book of books">
+    <mat-card
+      *ngIf="book.fav == true"
+      class="example-card"
+      (click)="BookDetail(book.id)"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ book.name }}</mat-card-title>
+        <mat-card-subtitle>{{ book.genre }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        class="img"
+        mat-card-image
+        src="{{ book.image }}"
+        alt="Photo of a Book"
+        style="height: 200px; width: 200px"
+      />
+      <mat-card-content>
+        <mat-card-footer
+          ><strong>Price:₹ {{ book.price }}</strong></mat-card-footer
+        >
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          class="icon"
+          mat-icon-button
+          *ngIf="book.fav == true; else block"
+          (click)="updateFavourite($event, book.id, book.fav)"
+          color="warn"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <ng-template #block
+          ><button
+            class="icon"
+            mat-icon-button
+            *ngIf="book.fav == false; else block"
+            (click)="updateFavourite($event, book.id, book.fav)"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button></ng-template
+        >
+        <button
+          class="cart"
+          color="primary"
+          mat-raised-button
+          *ngIf="book.cart == true; else blockcart"
+          (click)="updateCart($event, book.id, book.cart)"
+        >
+          Remove
+        </button>
+        <ng-template #blockcart>
+          <button
+            class="cart"
+            color="primary"
+            mat-raised-button
+            (click)="updateCart($event, book.id, book.cart)"
+          >
+            Add to cart
+          </button></ng-template
+        >
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

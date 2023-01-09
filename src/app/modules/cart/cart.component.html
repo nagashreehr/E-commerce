@@ -1,0 +1,19 @@
+<div class="container">
+  <ng-container *ngFor="let book of books">
+    <mat-card class="example-card" (click)="BookDetail(book.id)">
+      <mat-card-header>
+        <mat-card-title>{{ book.name }}</mat-card-title>
+        <mat-card-subtitle>{{ book.genre }}</mat-card-subtitle>
+      </mat-card-header>
+      <img class="img" mat-card-image src="{{ book.image }}" alt="Photo of a Book"
+        style="height: 200px; width: 200px" />
+      <mat-card-content>
+        <mat-card-footer><strong>Price:₹ {{ book.price }}</strong></mat-card-footer>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="cart" color="primary" mat-raised-button *ngIf="book.cart==true;"
+          (click)="updateCart($event,book.id,book.cart)">Remove</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+        <img src="{{book.image}}" alt="image" style="height:400px; width:400px;">
+
+        <div class="column-two">
+            <h1>{{book.name}}</h1>
+            <p>Genre:<strong>{{book.genre}}</strong></p>
+            <p class="price"><strong>₹{{book.price}}</strong></p>
+            <p class="description">{{book.description}}</p>
+            <p>Author Name: <strong>{{book.author}}</strong></p>
+         </div>
+         <div class="btn">
+         <button class="fav" mat-icon-button *ngIf="book.fav==true;else block"(click)="updateFavourite($event,book.id,book.fav)" color="warn"><mat-icon>favorite</mat-icon></button>
+         <ng-template #block>
+          <button class="fav" mat-icon-button *ngIf="book.fav==false;else block"(click)="updateFavourite($event,book.id,book.fav)"><mat-icon>favorite</mat-icon></button>
+         </ng-template>
+         <button class="wishlist" color="primary" mat-raised-button *ngIf="book.cart==true; else blockcart"
+          (click)="updateCart($event,book.id,book.cart)">Remove</button>
+        <ng-template #blockcart> <button class="wishlist" color="primary" mat-raised-button
+            (click)="updateCart($event,book.id,book.cart)">Add to cart</button></ng-template>
+         </div>
+</div>
+
+
+
+       
