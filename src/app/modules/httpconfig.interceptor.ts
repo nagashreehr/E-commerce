@@ -1,0 +1,25 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+import { catchError, finalize, Observable, throwError } from 'rxjs';
+import { NgxSpinner } from 'ngx-spinner';
+
+@Injectable()
+export class HttpconfigInterceptor implements HttpInterceptor {
+
+  constructor(private spinner: NgxSpinner) { }
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    this.spinner.show();
+    return next.handle(request).pipe(catchError((error) => {
+      return throwError(() => error);
+    }), finalize(() => {
+      this.spinner.hide();
+    }));
+  }
+}
+

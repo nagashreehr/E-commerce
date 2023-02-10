@@ -1,1 +1,6 @@
-<p>delete-product works!</p>
+<h1 mat-dialog-title>Delete Book</h1>
+<mat-dialog-content>Are you sure,Do want to delete this book?</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="warn" [mat-dialog-close]="false">No</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">Yes</button>
+</mat-dialog-actions>

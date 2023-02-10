@@ -1,0 +1,76 @@
+
+<div class="main">
+  <div class="form">
+      <div class="logo">
+          <img src="https://cdn.w600.comps.canstockphoto.com/book-shop-logo-simple-black-style-stock-illustration_csp58285365.jpg" alt="logo">
+      </div>
+      <h1>Login</h1>  
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+   <mat-form-field appearance="fill" class="single-field">
+      <mat-label>UserName</mat-label>
+      <input matInput placeholder="John" formControlName="username">
+      <mat-error *ngIf="!signUpForm.get('username')?.valid && (signUpForm.get('username')?.['touched'])">Enter
+          the valid user name
+        </mat-error>
+        </mat-form-field>
+    <mat-form-field appearance="fill" class="single-field">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="!signUpForm.get('password')?.valid && (signUpForm.get('password')?.['touched'])">Enter
+        the valid password
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="single-field">
+      <mat-label> Confirm Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmpassword">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="!signUpForm.get('confirmpassword')?.valid && (signUpForm.get('confirmpassword')?.['touched'])">Enter
+        the valid password
+      </mat-error>
+    </mat-form-field>
+    <div class="signup-btn">
+    <button mat-raised-button color="primary"type="submit">Sign Up</button>
+  </div>
+</form>
+<div class="signUp">
+  <a>Already a user? <a routerLink="/login">Login</a></a> 
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

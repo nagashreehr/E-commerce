@@ -15,7 +15,10 @@ import { ProductsModule } from './modules/products/products.module';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpconfigInterceptor } from './modules/home/components/shared/interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpconfigInterceptor, multi: true }],
+
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

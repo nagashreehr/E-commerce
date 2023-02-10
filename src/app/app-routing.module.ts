@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'favourite', loadChildren: () => import('./modules/favourite/favourite.module').then(m => m.FavouriteModule) },
   { path: 'cart', loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule) },
   { path: 'products', loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule) },
+  { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
+  { path: 'signUp', loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => m.SignUpModule) },
   
   ];
 

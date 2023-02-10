@@ -1,47 +1,31 @@
-<div class="header">
-  <h1 class="heading">Book List</h1>
-  <button
-    class="add-btn"
-    mat-raised-button
-    color="primary"
-    routerLink="add-products"
-  >
-    Add
-  </button>
+<div class="content">
+  <div>
+    <h1>Book List</h1>
+    <button class="add-btn" mat-raised-button color="primary" routerLink="add-product">Add</button>
+  </div>
+  <div *ngIf="books">
+    <mat-list class="list" *ngFor="let book of books| paginate: { itemsPerPage: 3, currentPage: currentPage }">
+      <mat-card class="card">
+        <mat-list-item>
+          <p class="data" matListItemTitle>Name:{{book.book_name}}. {{book.book_price|currency:'INR'}}
+            <button mat-icon-button color="primary" class="edit" (click)="editBooks(book)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteBooks(book)" color="primary" class="delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </p>
+          <p matListItemLine>
+            <span>Image: {{book.book_image}}</span>
+          </p>
+          <p matListItemLine>
+            <span>Genre: {{book.book_genre}}.Author: {{book.book_author}} </span>
+          </p>
+          <p matListItemLine><span class="description">Description:{{book.book_description}}</span></p>
+        </mat-list-item>
+      </mat-card>
+
+    </mat-list>
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
 </div>
-<mat-list class="example-list-wrapping">
-  <mat-list-item lines="3">
-    <span matListItemTitle>Title</span>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est
-  </mat-list-item>
-</mat-list>
-
-<button
-  class="delete"
-  mat-icon-button
-  color="primary"
-  aria-label="Example icon button with a home icon"
->
-  <mat-icon>delete</mat-icon>
-</button>
-<button
-  class="edit"
-  mat-icon-button
-  color="primary"
-  aria-label="Example icon button with a home icon"
->
-  <mat-icon>edit</mat-icon>
-</button>
-
-<!-- <div>
-  <mat-list *ngIf="books.length > 0">
-    <mat-list-item *ngFor="let book of books" class="list-item">
-      <h3 matListItemTitle>Name {{ books.name }}</h3>
-    </mat-list-item>
-  </mat-list>
-</div> -->
