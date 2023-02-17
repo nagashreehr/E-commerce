@@ -1,31 +1,35 @@
-h1{
+h1 {
   text-align: center;
   margin-top: 1%;
 }
 
-.add-btn{
-  float:right;
+.add-btn {
+  float: right;
   margin-right: 3%;
   margin-top: -3%;
 }
-.edit{
-  float:right;
+
+.edit {
+  float: right;
 }
-.delete{
-  float:right;
+
+.delete {
+  float: right;
 }
-.card{
+
+.card {
   margin-left: 10%;
-  margin-right:10%;
-  padding-bottom:1%;
+  margin-right: 10%;
+  padding-bottom: 1%;
   margin-bottom: 1%;
 }
-.data{
-  margin-top:10px;
+
+.data {
+  margin-top: 10px;
 }
-pagination-controls{
+
+pagination-controls {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-

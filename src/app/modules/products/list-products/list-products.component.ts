@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../home/components/shared/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-products',
@@ -14,12 +15,12 @@ import { DeleteProductComponent } from '../delete-product/delete-product.compone
 export class ListProductsComponent {
   books: any;
   currentPage = 0;
-
-
+  preview: any;
   constructor(private apiService: ApiService,
     private toastr: ToastrService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -29,8 +30,10 @@ export class ListProductsComponent {
   getBooks() {
     this.apiService.getRequest('books').subscribe((sResponse) => {
       this.books = sResponse.data;
+      debugger;
       console.log(sResponse);
     })
+
   }
 
   deleteBooks(book: any) {
@@ -45,12 +48,13 @@ export class ListProductsComponent {
       }
     });
   }
-
-
   editBooks(books: any) {
     console.log(books);
     this.router.navigate(['products/add-product', books.id])
 
+  }
+  sanitize(url: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 }
 

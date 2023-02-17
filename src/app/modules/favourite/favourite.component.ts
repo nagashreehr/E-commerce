@@ -9,27 +9,27 @@ import { BookService } from '../home/components/shared/book.service';
   // providers:[BookService]
 })
 export class FavouriteComponent {
-  books:any;
+  books: any;
   book: any;
-  constructor(private bookService:BookService,private router:Router){
-    this.books=bookService.FavouriteBooks();
+  constructor(private bookService: BookService, private router: Router) {
+    this.books = bookService.FavouriteBooks();
     console.log(this.books);
   }
-  BookDetail(id:number){
-    this.router.navigate(['/details',id])
+  BookDetail(id: number) {
+    this.router.navigate(['/details', id])
   }
-  updateFavourite(event:any,id:number,status:boolean){
+  updateFavourite(event: any, id: number, status: boolean) {
     debugger;
     event.stopPropagation();
-    let toggleStatus=!status;
-    this.book=this.bookService.updateFavourite(id,toggleStatus)
-console.log(this.book);
+    let toggleStatus = !status;
+    this.book = this.bookService.updateFavourite(id, toggleStatus)
+    console.log(this.book);
   }
-  updateCart(event:any,id:number,status:boolean){
+  updateCart(event: any, id: number, status: boolean) {
     event.stopPropagation();
-    let toggleStatus=!status;
-    this.book=this.bookService.updateCart(id,toggleStatus)
-console.log(this.book);
+    let toggleStatus = !status;
+    this.book = this.bookService.updateCart(id, toggleStatus)
+    console.log(this.book);
   }
 
 }

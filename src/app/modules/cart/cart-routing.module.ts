@@ -4,16 +4,16 @@ import { CartComponent } from './cart.component';
 import { FullLayoutComponent } from 'src/app/layouts/full-layout/full-layout.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-  component: FullLayoutComponent,
-  children:[
-    {
-      path: '',
-      component: CartComponent,
-    }
-  ]
- }
+  {
+    path: '',
+    component: FullLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: CartComponent,
+      }
+    ]
+  }
 ];
 
 @NgModule({

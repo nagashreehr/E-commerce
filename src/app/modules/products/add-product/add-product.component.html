@@ -21,22 +21,22 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="one-field">
       <mat-label>Description</mat-label>
-      <input matInput placeholder="Book Description" formControlName="book_description" />
+      <textarea matInput placeholder="Book Description" formControlName="book_description"></textarea>
       <mat-error
         *ngIf="!AddBookForm.get('book_description')?.valid && (AddBookForm.get('book_description')?.['touched'])">Enter
         the Description of the Book
       </mat-error>
     </mat-form-field>
 
-    <input type="file" accept="image/*" (change)="showPreview($event)"/>
+    <input type="file" accept="image/*" (change)="showPreview($event)" />
     <div class="imageUpload">
       <div class="imagepreview" *ngIf="imageURL && imageURL !==''">
-        <img class="imagepreview" [src]="imageURL" [alt]="AddBookForm.value.name"style="width:100px;height:200px;">
+        <img class="imagepreview" [src]="imageURL" [alt]="AddBookForm.value.name" style="width:100px;height:200px;">
       </div>
-      <div class="imagepreview"*ngIf="!imageURL">
-        <img class="imagepreview"  src="../../../../assets/placeholder_img.jpg" [alt]="AddBookForm.value.name" style="width:100px;height:100px;">
+      <div class="imagepreview" *ngIf="!imageURL">
+        <img class="imagepreview" [src]=preview [alt]="AddBookForm.value.name" style="width:100px;height:100px;">
       </div>
-    </div>  
+    </div>
     <mat-form-field appearance="fill" class="one-field">
       <mat-label>Author</mat-label>
       <input matInput placeholder="Book Author" formControlName="book_author" />

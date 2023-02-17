@@ -16,7 +16,7 @@
             </button>
           </p>
           <p matListItemLine>
-            <span>Image: {{book.book_image}}</span>
+            <img matListAvatar src={{book.book_image}} alt="..." style="height: 100px; width: 150px">
           </p>
           <p matListItemLine>
             <span>Genre: {{book.book_genre}}.Author: {{book.book_author}} </span>
@@ -24,7 +24,6 @@
           <p matListItemLine><span class="description">Description:{{book.book_description}}</span></p>
         </mat-list-item>
       </mat-card>
-
     </mat-list>
     <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
   </div>

@@ -1,7 +1,9 @@
 <mat-toolbar color="primary" class="example-toolbar">
+
   <button mat-icon-button (click)="snav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
+
   <h1 class="example-app-name">Online Book Store</h1>
   <button class="home" [routerLinkActive]="['active']" routerLink="/home" mat-icon-button>
     <mat-icon>home</mat-icon>
@@ -10,8 +12,20 @@
   <button class="favorite" [routerLinkActive]="['active']" routerLink="/favourite" mat-icon-button>
     <mat-icon>favorite</mat-icon>
   </button>
+
   <button class="cart" [routerLinkActive]="['active']" routerLink="/cart" mat-icon-button>
     <mat-icon matBadge="{{cartCount}}" matBadgeColor="primary">shopping_cart</mat-icon>
   </button>
 
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/login">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+  
 </mat-toolbar>

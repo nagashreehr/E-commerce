@@ -1,42 +1,48 @@
-h1{
-    text-align: center; 
+h1 {
+    text-align: center;
 }
-.logo img{
+
+.logo img {
     width: 100px;
     height: 100px;
     margin-left: 90px;
     margin-right: 90px;
     background-color: transparent;
 }
-.logo{
-    width:70%;
+
+.logo {
+    width: 70%;
     margin: 0 auto auto auto;
 }
-.form{
-    width:30%;
-    background-color:transparent;
+
+.form {
+    width: 30%;
+    background-color: transparent;
     padding: 3%;
-    margin:0 auto 10% auto;
+    margin: 0 auto 10% auto;
 
 }
-.single-field{
+
+.single-field {
     margin-left: 8px;
-    width:100%;
+    width: 100%;
 }
-.login-btn{
+
+.login-btn {
     margin-left: 40%;
     margin-right: 40%;
 }
-.main{
-    margin:0 0 0 0;
+
+.main {
+    margin: 0 0 0 0;
     background-image: url("https://i.pinimg.com/564x/01/80/6e/01806e8be0098b052a8c9739cfab3066.jpg");
     background-size: cover;
-    width:auto;
-    height:100vh;
+    width: auto;
+    height: 100vh;
 }
-.signUp{
-    margin-top:2%;
-    margin-left:20%;
-    font-weight:500%;
+
+.signUp {
+    margin-top: 2%;
+    margin-left: 20%;
+    font-weight: 500%;
 }
-  

@@ -2,13 +2,13 @@
   <ng-container *ngFor="let book of books">
     <mat-card class="example-card" (click)="BookDetail(book.id)">
       <mat-card-header>
-        <mat-card-title>{{ book.name }}</mat-card-title>
-        <mat-card-subtitle class="subtitle">{{ book.genre }}</mat-card-subtitle>
+        <mat-card-title>{{ book.book_name }}</mat-card-title>
+        <mat-card-subtitle class="subtitle">{{ book.book_genre }}</mat-card-subtitle>
       </mat-card-header>
-      <img class="img" mat-card-image src="{{ book.image }}" alt="Photo of a Book"
+      <img class="img" mat-card-image src="{{book.book_image}}" alt="Photo of a Book"
         style="height: 200px; width: 200px" />
       <mat-card-content>
-        <mat-card-footer class="price"><strong>Price: ₹ {{ book.price }}</strong></mat-card-footer>
+        <mat-card-footer class="price"><strong>Price: ₹ {{ book.book_price }}</strong></mat-card-footer>
       </mat-card-content>
       <mat-card-actions>
         <button class="icon" mat-icon-button *ngIf="book.fav==true; else block"

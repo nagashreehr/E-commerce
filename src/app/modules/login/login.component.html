@@ -1,22 +1,24 @@
-
 <div class="main">
-    <div class="form">
-        <div class="logo">
-            <img src="https://cdn.w600.comps.canstockphoto.com/book-shop-logo-simple-black-style-stock-illustration_csp58285365.jpg" alt="logo">
-        </div>
-        <h1>Login</h1>  
- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-     <mat-form-field appearance="fill" class="single-field">
+  <div class="form">
+    <div class="logo">
+      <img
+        src="https://cdn.w600.comps.canstockphoto.com/book-shop-logo-simple-black-style-stock-illustration_csp58285365.jpg"
+        alt="logo">
+    </div>
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="single-field">
         <mat-label>UserName</mat-label>
         <input matInput placeholder="John" formControlName="username">
         <mat-error *ngIf="!loginForm.get('username')?.valid && (loginForm.get('username')?.['touched'])">Enter
-            the valid user name
-          </mat-error>
-          </mat-form-field>
+          the valid user name
+        </mat-error>
+      </mat-form-field>
       <mat-form-field appearance="fill" class="single-field">
         <mat-label>Password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="!loginForm.get('password')?.valid && (loginForm.get('password')?.['touched'])">Enter
@@ -24,11 +26,11 @@
         </mat-error>
       </mat-form-field>
       <div class="login-btn">
-      <button mat-raised-button color="primary"type="submit">Login</button>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+      </div>
+    </form>
+    <div class="signUp">
+      <a>Need an account? <a routerLink="/signUp">SIGN UP</a></a>
     </div>
-</form>
-<div class="signUp">
-    <a>Need an account? <a routerLink="/signUp">SIGN UP</a></a> 
- </div>
-</div>
+  </div>
 </div>
