@@ -17,7 +17,6 @@ export class BookService {
     setCartCount(count: number) {
         this.cartCount = count;
         this.subject$.next(this.cartCount);
-
     }
 
     getBooks() {
@@ -26,8 +25,9 @@ export class BookService {
     getBooksId(id: any) {
         let book
         books.map((element: any) => element.id == id ? book = element : {});
-        return book;
+        return books;
     }
+    
     FavouriteBooks() {
         let fav: any = []
         debugger;

@@ -1,27 +1,27 @@
 <div class="content">
   <div>
     <h1>Book List</h1>
-    <button class="add-btn" mat-raised-button color="primary" routerLink="add-product">Add</button>
+    <button class="add-btn" mat-raised-button routerLink="add-product">Add</button>
   </div>
   <div *ngIf="books">
     <mat-list class="list" *ngFor="let book of books| paginate: { itemsPerPage: 3, currentPage: currentPage }">
       <mat-card class="card">
         <mat-list-item>
-          <p class="data" matListItemTitle>Name:{{book.book_name}}. {{book.book_price|currency:'INR'}}
-            <button mat-icon-button color="primary" class="edit" (click)="editBooks(book)">
+          <p class="data" matListItemTitle>Name:{{book.name}}. {{book.price|currency:'INR'}}
+            <button mat-icon-button class="edit" (click)="editBooks(book)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteBooks(book)" color="primary" class="delete">
+            <button mat-icon-button (click)="deleteBooks(book)" class="delete">
               <mat-icon>delete</mat-icon>
             </button>
           </p>
           <p matListItemLine>
-            <img matListAvatar src={{book.book_image}} alt="..." style="height: 100px; width: 150px">
+            <img matListAvatar src={{book.image}} alt="..." style="height: 100px; width: 150px">
           </p>
           <p matListItemLine>
-            <span>Genre: {{book.book_genre}}.Author: {{book.book_author}} </span>
+            <span>Genre: {{book.genre}}.Author: {{book.author}} </span>
           </p>
-          <p matListItemLine><span class="description">Description:{{book.book_description}}</span></p>
+          <p matListItemLine><span class="description">Description:{{book.description}}</span></p>
         </mat-list-item>
       </mat-card>
     </mat-list>

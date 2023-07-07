@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../home/components/shared/api.service';
+import { BookService } from '../../home/components/shared/book.service';
 
 @Component({
   selector: 'app-add-product',
@@ -20,7 +21,7 @@ export class AddProductComponent {
   imageURL: string;
   preview: any;
 
-  constructor(private apiService: ApiService, private toastr: ToastrService, private activeRoute: ActivatedRoute, private router: Router, private fb: FormBuilder, private sanitizer: DomSanitizer) {
+  constructor(private apiService: ApiService,private bookService:BookService,private toastr: ToastrService, private activeRoute: ActivatedRoute, private router: Router, private fb: FormBuilder, private sanitizer: DomSanitizer) {
     this.AddBookForm = new FormGroup({
       book_name: new FormControl(null, [Validators.required]),
       book_genre: new FormControl(null, [Validators.required]),
@@ -112,9 +113,10 @@ export class AddProductComponent {
   }
 
   getBooks() {
-    this.apiService.getRequest('books').subscribe((sResponse) => {
-      this.books = sResponse;
-    })
+    // this.apiService.getRequest('books').subscribe((sResponse) => {
+    //   this.books = sResponse;
+    // })
+    this.books=this.bookService.getBooks();
   }
   reset() {
     this.AddBookForm.reset();

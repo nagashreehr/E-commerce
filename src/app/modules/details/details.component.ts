@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../home/components/shared/api.service';
 import { BookService } from '../home/components/shared/book.service';
+// import { books } from "../shared/data";
 
 @Component({
   selector: 'app-details',
@@ -10,23 +11,27 @@ import { BookService } from '../home/components/shared/book.service';
 })
 export class DetailsComponent implements OnInit {
 
-  bookdetails: any = {};
+  details: any = {};
   id: number = 0;
   book: any;
-  books: any;
+  books:any;
   cartCount: number = 0;
   constructor(private route: ActivatedRoute,
     private bookService: BookService, private apiService: ApiService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.apiService.getRequestById('books', this.id).subscribe((sResponse) => {
-      this.bookdetails = sResponse.data;
-    }
-    )
+    this.details = this.bookService.getBooksId(this.id);
+    // this.apiService.getRequestById('books', this.id).subscribe((sResponse) => {
+    //   this.bookdetails = sResponse.data;
+    // }
+    // )
+    console.log(this.books);
   }
   ngOnInit(): void {
-    this.book = this.bookService.getBooksId(this.id);
-    console.log(this.book);
+    this.books = this.bookService.getBooksId(this.id);
+    console.log(this.books);
   }
+
+  
   updateFavourite(event: any, id: number, status: boolean) {
     debugger;
     event.stopPropagation();

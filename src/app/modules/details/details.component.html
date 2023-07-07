@@ -1,12 +1,12 @@
 <div class="row">
-        <img src="{{bookdetails.book_image}}" alt="image" style="height:400px; width:400px;">
+        <img src="{{details.image}}" alt="image" style="height:400px; width:400px;">
 
         <div class="column-two">
-            <h1>{{bookdetails.book_name}}</h1>
-            <p>Genre:<strong>{{bookdetails.book_genre}}</strong></p>
-            <p class="price"><strong>₹{{bookdetails.book_price}}</strong></p>
-            <p class="description">{{bookdetails.book_description}}</p>
-            <p>Author Name: <strong>{{bookdetails.book_author}}</strong></p>
+            <h1>{{details.name}}</h1>
+            <p>Genre:<strong>{{details.genre}}</strong></p>
+            <p class="price"><strong>₹{{details.book_price}}</strong></p>
+            <p class="description">{{details.description}}</p>
+            <p>Author Name: <strong>{{details.author}}</strong></p>
          </div>
          <!-- <div class="btn">
          <button class="fav" mat-icon-button *ngIf="book.fav==true;else block"(click)="updateFavourite($event,book.id,book.fav)" color="warn"><mat-icon>favorite</mat-icon></button>

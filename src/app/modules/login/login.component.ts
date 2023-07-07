@@ -21,19 +21,39 @@ export class LoginComponent {
       password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]]
     });
   }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   // this.apiService.postRequest('books/login', this.loginForm.value).subscribe((sresponse) => {
+  //   //   if (sresponse.status == true) {
+  //   //     this.toastr.success('Logged in  successfully', 'Success');
+  //       this.router.navigate(['home']);
+  //   //     this.sharedService.setToken(sresponse.data.token)
+  //   //     debugger
+  //   //     console.log(sresponse.data.token);
+  //   //   }
+  //   // }, error => {
+  //   //   this.toastr.error('Invalid username or password', 'Try again');
+  //   // });
+  // }
+
   onSubmit() {
     this.submitted = true;
-    this.apiService.postRequest('books/login', this.loginForm.value).subscribe((sresponse) => {
-      if (sresponse.status == true) {
-        this.toastr.success('Logged in  successfully', 'Success');
+  
+    // Check if the form is valid
+    if (this.loginForm.valid) {
+      const username = this.loginForm.get('username').value;
+      const password = this.loginForm.get('password').value;
+  
+      // Perform static login check
+      if (username === 'Test' && password === 'test@123') {
+        this.toastr.success('Logged in successfully', 'Success');
         this.router.navigate(['home']);
-        this.sharedService.setToken(sresponse.data.token)
-        debugger
-        console.log(sresponse.data.token);
+        // Perform any additional actions you need
+      } else {
+        this.toastr.error('Invalid username or password', 'Try again');
       }
-    }, error => {
-      this.toastr.error('Invalid username or password', 'Try again');
-    });
+    }
   }
+  
 
 }

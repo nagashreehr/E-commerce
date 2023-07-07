@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
 import { BookService } from '../shared/book.service';
-import { books } from '../shared/data';
 import { DomSanitizer } from '@angular/platform-browser';
+import { books } from "../shared/data";
 
 @Component({
   selector: 'app-card',
@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
+
   books:any;
   preview:any;
   cartCount:number=0;
@@ -21,14 +22,11 @@ export class CardComponent {
     }
     ngOnInit(){
       this.getBooks();
-      debugger
-      
+      debugger  
     }
     BookDetail(id:number){
-      this.router.navigate(['/details',id])
-      
+      this.router.navigate(['/details',id])  
     }
-
     updateFavourite(event:any,id:number,status:boolean){
       debugger;
       event.stopPropagation();
@@ -53,14 +51,9 @@ console.log(this.books);
     }
 
     getBooks(){
-      this.apiService.getRequest('books').subscribe((sResponse) => {
-        debugger;
-        this.books = sResponse.data;
-      })
-    }
-    sanitize(url:string){
-      return this.sanitizer.bypassSecurityTrustUrl(url);
-  }
+      this.books=this.bookService.getBooks();
+      }
+    
 }
 
 

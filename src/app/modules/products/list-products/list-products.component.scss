@@ -1,20 +1,27 @@
 h1 {
   text-align: center;
-  margin-top: 1%;
+   padding-top: 1%;
+}
+.content{
+  background-color:#FFEBEB!important;
 }
 
 .add-btn {
   float: right;
   margin-right: 3%;
   margin-top: -3%;
+  background-color:#862B0D !important;
+  color:#FFEBEB !important;
 }
 
 .edit {
   float: right;
+  color:#862B0D !important;
 }
 
 .delete {
   float: right;
+  color:#862B0D !important;
 }
 
 .card {

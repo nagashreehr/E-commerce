@@ -1,7 +1,8 @@
+<div class="content">
 <div class="header">
   <h1>Add Book</h1>
-  <button mat-raised-button color="primary" routerLink="/products">
-    <mat-icon color="white">arrow_back</mat-icon>Back
+  <button class="icon" mat-raised-button routerLink="/products">
+    <mat-icon>arrow_back</mat-icon>Back
   </button>
 </div>
 <div class="footer">
@@ -51,10 +52,11 @@
         Enter the Price
       </mat-error>
     </mat-form-field>
-    <button class="reset" (click)="reset()" mat-raised-button color="grey">
+    <button class="reset" (click)="reset()" mat-raised-button>
       Reset
     </button>
-    <button type="submit" class="submit" mat-raised-button color="primary">
+    <button type="submit" class="submit" mat-raised-button>
       Submit
     </button>
   </form>
+</div>

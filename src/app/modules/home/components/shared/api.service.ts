@@ -17,17 +17,17 @@ export class ApiService {
 
   getRequest(url: string): Observable<any> {
     this.spinner.show();
-    return this.http.get(`${this.ROOT_URL}${url}`)
-    // return this.http.get(`${this.ROOT_URL}${url}`).pipe(
-      // map((response: any) => {
-      //   let books = [];
-      //   for (let key in response) {
-      //     response[key].id = key;
-      //     books.push(response[key])
-      //   }
-      //   this.spinner.hide();
-      //   return books;
-      // }));
+     return this.http.get(`${this.ROOT_URL}${url}`)
+    //  return this.http.get(`${this.ROOT_URL}${url}`).pipe(
+    //  map((response: any) => {
+    //     let books = [];
+    //    for (let key in response) {
+    //     response[key].id = key;
+    //        books.push(response[key])
+    //     }
+    //     this.spinner.hide();
+    //     return books;
+    //    }));
   }
 
   putRequest(url: string, id: number, body = {}): Observable<any> {

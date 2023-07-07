@@ -5,6 +5,7 @@ import { ApiService } from '../../home/components/shared/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { BookService } from '../../home/components/shared/book.service';
 
 @Component({
   selector: 'app-list-products',
@@ -16,7 +17,7 @@ export class ListProductsComponent {
   books: any;
   currentPage = 0;
   preview: any;
-  constructor(private apiService: ApiService,
+  constructor(private apiService: ApiService,private bookService:BookService,
     private toastr: ToastrService,
     private router: Router,
     private dialog: MatDialog,
@@ -27,14 +28,19 @@ export class ListProductsComponent {
     this.getBooks();
   }
 
-  getBooks() {
-    this.apiService.getRequest('books').subscribe((sResponse) => {
-      this.books = sResponse.data;
-      debugger;
-      console.log(sResponse);
-    })
+  // getBooks() {
+  //   this.apiService.getRequest('books').subscribe((sResponse) => {
+  //     this.books = sResponse.data;
+  //     debugger;
+  //     console.log(sResponse);
+  //   })
 
-  }
+  // }
+
+
+  getBooks(){
+    this.books=this.bookService.getBooks();
+    }
 
   deleteBooks(book: any) {
     let dialogControl = this.dialog.open(DeleteProductComponent);
